@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rocco Holdings LLC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0a0a0b;
+      --bg-elevated: #111113;
+      --text-primary: #ece8e1;
+      --text-secondary: #8d8a86;
+      --text-tertiary: #5c5a58;
+      --brass: #ad8a55;
+      --brass-dim: #6e5a3c;
+      --border: rgba(236, 232, 225, 0.08);
+      --border-strong: rgba(236, 232, 225, 0.16);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      padding: 2.25rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .wordmark-small {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text-primary);
+    }
+
+    .contact-btn {
+      padding: 0.65rem 1.5rem;
+      background-color: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-strong);
+      border-radius: 2px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      border-color: var(--brass);
+      color: var(--brass);
+    }
+
+    header {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 0 6rem;
+      text-align: center;
+      animation: rise 1.1s ease-out;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 1.75rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 76px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.75rem;
+      line-height: 1.1;
+    }
+
+    .tagline {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin: 0 auto 3.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background-color: var(--brass-dim);
+      margin: 0 auto 3.5rem;
+    }
+
+    .sectors {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .sector {
+      padding: 1.5rem 0.75rem;
+      border-top: 1px solid var(--border);
+      transition: border-color 0.3s ease;
+    }
+
+    .sector:hover {
+      border-top-color: var(--brass);
+    }
+
+    .sector-num {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-bottom: 0.6rem;
+    }
+
+    .sector-name {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    footer {
+      padding: 2.5rem 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .location {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+    }
+
+    .copyright {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      opacity: 0.6;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      header {
+        padding: 3rem 0 4rem;
+      }
+
+      .sectors {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem 0;
+        max-width: 320px;
+      }
+
+      .tagline {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <span class="wordmark-small">RHL</span>
+      <a href="contact.html" class="contact-btn">Inquiries</a>
+    </nav>
+
+    <header>
+      <p class="eyebrow">Private Capital &amp; Advisory</p>
+      <h1>RHL LLC</h1>
+      <p class="tagline">A consulting firm engaged in specialty ventures across real estate, construction, development, and aerospace.</p>
+
+      <div class="divider"></div>
+
+      <div class="sectors">
+        <div class="sector">
+          <span class="sector-num">I</span>
+          <span class="sector-name">Real Estate</span>
+        </div>
+        <div class="sector">
+          <span class="sector-num">II</span>
+          <span class="sector-name">Construction</span>
+        </div>
+        <div class="sector">
+          <span class="sector-num">III</span>
+          <span class="sector-name">Development</span>
+        </div>
+        <div class="sector">
+          <span class="sector-num">IV</span>
+          <span class="sector-name">Aerospace</span>
+        </div>
+      </div>
+    </header>
+
+    <footer>
+      <p class="location">Los Angeles, California</p>
+      <p class="copyright">Rocco Holdings LLC</p>
+    </footer>
+  </div>
+</body>
+</html>
