@@ -203,65 +203,9 @@
       color: var(--text-secondary);
     }
 
-    .capabilities {
-      padding: 4.5rem 0 5rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .cap-header {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 3rem;
-    }
-
-    .cap-heading {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      font-weight: 500;
-      margin-bottom: 1rem;
-    }
-
-    .cap-subtext {
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--text-secondary);
-    }
-
-    .cap-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .cap-item {
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .cap-num {
-      display: block;
-      font-family: 'Playfair Display', serif;
-      font-size: 12px;
-      color: var(--text-tertiary);
-      margin-bottom: 0.75rem;
-    }
-
-    .cap-title {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-primary);
-      margin-bottom: 0.6rem;
-    }
-
-    .cap-desc {
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--text-secondary);
-      line-height: 1.65;
+    .nav-buttons {
+      display: flex;
+      gap: 0.75rem;
     }
 
     footer {
@@ -309,9 +253,13 @@
         font-size: 15px;
       }
 
-      .cap-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+      .nav-buttons {
+        gap: 0.5rem;
+      }
+
+      .contact-btn {
+        padding: 0.55rem 0.9rem;
+        font-size: 10px;
       }
     }
   </style>
@@ -319,8 +267,11 @@
 <body>
   <div class="container">
     <nav>
-      <span class="wordmark-small">RH</span>
-      <a href="contact.html" class="contact-btn">Inquiries</a>
+      <a href="index.html" class="wordmark-small">RH</a>
+      <div class="nav-buttons">
+        <a href="what-we-build.html" class="contact-btn">What We Build</a>
+        <a href="contact.html" class="contact-btn">Inquiries</a>
+      </div>
     </nav>
 
     <header>
@@ -349,32 +300,6 @@
         </div>
       </div>
     </header>
-
-    <section class="capabilities">
-      <div class="cap-header">
-        <p class="eyebrow">What We Build</p>
-        <h2 class="cap-heading">Digital infrastructure for firms ready to scale</h2>
-        <p class="cap-subtext">For real estate, construction, and development companies moving from referral-based growth to a system that generates inbound demand on its own.</p>
-      </div>
-
-      <div class="cap-grid">
-        <div class="cap-item">
-          <span class="cap-num">I</span>
-          <p class="cap-title">Digital Presence</p>
-          <p class="cap-desc">Websites and brand systems engineered to convert visibility into qualified inquiries, not just impressions.</p>
-        </div>
-        <div class="cap-item">
-          <span class="cap-num">II</span>
-          <p class="cap-title">Search Visibility</p>
-          <p class="cap-desc">SEO architecture built around how real estate, construction, and development buyers actually search and decide.</p>
-        </div>
-        <div class="cap-item">
-          <span class="cap-num">III</span>
-          <p class="cap-title">Inbound Gravity</p>
-          <p class="cap-desc">A self-sustaining lead engine, built once, that pulls qualified demand toward your business instead of chasing it.</p>
-        </div>
-      </div>
-    </section>
 
     <footer>
       <p class="location">CA Est. 2025</p>
