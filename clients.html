@@ -3,13 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Rocco Holdings LLC</title>
-  <meta name="description" content="Submit a private advisory inquiry to RH LLC for real estate, construction, and development companies looking to scale their digital presence and lead generation.">
-  <link rel="canonical" href="https://roccoholdingsllc.com/contact.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="RH LLC">
-  <meta property="og:title" content="Contact | RH LLC">
-  <meta property="og:url" content="https://roccoholdingsllc.com/contact.html">
+  <title>Client Portal | RH LLC</title>
+  <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -84,7 +79,8 @@
       transition: color 0.3s ease;
     }
 
-    .nav-link:hover {
+    .nav-link:hover,
+    .nav-link.active {
       color: var(--brass);
     }
 
@@ -122,9 +118,9 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .header-block {
+    .gate-header {
       text-align: center;
-      margin-bottom: 3.5rem;
+      margin-bottom: 3rem;
     }
 
     .eyebrow {
@@ -138,13 +134,13 @@
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 38px;
+      font-size: 36px;
       font-weight: 500;
       letter-spacing: 0.01em;
       margin-bottom: 1rem;
     }
 
-    .subtitle {
+    .gate-subtext {
       font-size: 15px;
       font-weight: 300;
       color: var(--text-secondary);
@@ -152,14 +148,14 @@
       margin: 0 auto;
     }
 
-    form {
-      max-width: 460px;
+    #passwordGate {
+      max-width: 360px;
       margin: 0 auto;
       width: 100%;
     }
 
     .form-group {
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
     }
 
     label {
@@ -172,8 +168,7 @@
       margin-bottom: 0.6rem;
     }
 
-    input,
-    textarea {
+    input {
       width: 100%;
       padding: 0.85rem 0;
       border: none;
@@ -183,23 +178,13 @@
       font-size: 15px;
       background-color: transparent;
       color: var(--text-primary);
+      letter-spacing: 0.08em;
       transition: border-color 0.3s ease;
     }
 
-    input:focus,
-    textarea:focus {
+    input:focus {
       outline: none;
       border-bottom-color: var(--brass);
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: var(--text-tertiary);
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 110px;
     }
 
     button {
@@ -220,28 +205,68 @@
 
     button:hover {
       background-color: var(--brass);
-      color: var(--bg);
     }
 
-    button:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
-
-    .form-status {
+    .gate-status {
       text-align: center;
       margin-top: 1.25rem;
       font-size: 13px;
       min-height: 20px;
-      color: var(--text-secondary);
-    }
-
-    .form-status.success {
-      color: var(--brass);
-    }
-
-    .form-status.error {
       color: #c0796a;
+    }
+
+    #dashboardView {
+      display: none;
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+    }
+
+    #dashboardView.visible {
+      display: block;
+    }
+
+    .dash-welcome {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .dash-placeholder {
+      border: 1px solid var(--border-strong);
+      border-radius: 4px;
+      padding: 4rem 2rem;
+      background-color: var(--bg-elevated);
+    }
+
+    .dash-placeholder-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      margin-bottom: 0.75rem;
+    }
+
+    .dash-placeholder-desc {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .logout-link {
+      display: inline-block;
+      margin-top: 2rem;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .logout-link:hover {
+      color: var(--brass);
     }
 
     footer {
@@ -272,7 +297,7 @@
       }
 
       h1 {
-        font-size: 28px;
+        font-size: 26px;
       }
 
       .nav-links {
@@ -291,90 +316,80 @@
       <a href="index.html" class="wordmark-small">RH</a>
       <div class="nav-links">
         <a href="what-we-build.html" class="nav-link">What We Build</a>
-        <a href="clients.html" class="nav-link">Client Portal</a>
+        <a href="clients.html" class="nav-link active">Client Portal</a>
       </div>
       <a href="contact.html" class="contact-btn">Inquiries</a>
     </nav>
 
     <main>
-      <div class="header-block">
-        <p class="eyebrow">Get in touch</p>
-        <h1>Submit an inquiry</h1>
-        <p class="subtitle">For partnership, advisory, or venture inquiries, send us a note below.</p>
+      <div id="gateScreen">
+        <div class="gate-header">
+          <p class="eyebrow">Client Portal</p>
+          <h1>Access your dashboard</h1>
+          <p class="gate-subtext">Enter your password to view your account's performance data.</p>
+        </div>
+
+        <form id="passwordGate">
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required autocomplete="current-password">
+          </div>
+          <button type="submit">Enter</button>
+          <div class="gate-status" id="gateStatus"></div>
+        </form>
       </div>
 
-      <form id="contactForm">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
+      <div id="dashboardView">
+        <p class="eyebrow">Client Portal</p>
+        <h1>Welcome back</h1>
+        <p class="dash-welcome">Here is where your live performance data will appear.</p>
+
+        <div class="dash-placeholder">
+          <p class="dash-placeholder-title">Analytics dashboard</p>
+          <p class="dash-placeholder-desc">Your Google Analytics report is being connected to this view. Once live, you'll see your traffic, lead sources, and inquiry volume here.</p>
         </div>
 
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-
-        <button type="submit" id="submitBtn">Submit</button>
-        <div class="form-status" id="formStatus"></div>
-      </form>
+        <a class="logout-link" id="logoutLink">Log out</a>
+      </div>
     </main>
 
     <footer>
-      <p class="location">Los Angeles, California</p>
+      <p class="location">CA Est. 2025</p>
       <p class="copyright">Rocco Holdings LLC</p>
     </footer>
   </div>
+
   <script>
-    const form = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const formStatus = document.getElementById('formStatus');
+    // PLACEHOLDER AUTH — front-end only, not secure.
+    // This exists purely to demonstrate the gate UX until real
+    // per-client authentication and Google Analytics embeds are built.
+    // Anyone can view this password in the page source — do not use
+    // this to protect anything sensitive yet.
+    const DEMO_PASSWORD = "rhclient2026";
 
-    form.addEventListener('submit', async (e) => {
+    const gateForm = document.getElementById('passwordGate');
+    const gateStatus = document.getElementById('gateStatus');
+    const gateScreen = document.getElementById('gateScreen');
+    const dashboardView = document.getElementById('dashboardView');
+    const logoutLink = document.getElementById('logoutLink');
+
+    gateForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const entered = document.getElementById('password').value;
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-
-      submitBtn.disabled = true;
-      formStatus.textContent = 'Sending...';
-      formStatus.className = 'form-status';
-
-      try {
-        const response = await fetch('https://formsubmit.co/ajax/leeadnakash@gmail.com', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            message: message,
-            _subject: `New inquiry from ${name}`,
-            _captcha: 'false',
-            _cc: 'leo@roccoholdingsllc.com'
-          })
-        });
-
-        if (response.ok) {
-          formStatus.textContent = 'Message sent. We will be in touch soon.';
-          formStatus.className = 'form-status success';
-          form.reset();
-        } else {
-          throw new Error('Failed to send');
-        }
-      } catch (error) {
-        formStatus.textContent = 'Error sending message. Please email leo@roccoholdingsllc.com directly.';
-        formStatus.className = 'form-status error';
-      } finally {
-        submitBtn.disabled = false;
+      if (entered === DEMO_PASSWORD) {
+        gateScreen.style.display = 'none';
+        dashboardView.classList.add('visible');
+      } else {
+        gateStatus.textContent = 'Incorrect password. Please try again.';
       }
+    });
+
+    logoutLink.addEventListener('click', () => {
+      dashboardView.classList.remove('visible');
+      gateScreen.style.display = 'block';
+      document.getElementById('password').value = '';
+      gateStatus.textContent = '';
     });
   </script>
 </body>
