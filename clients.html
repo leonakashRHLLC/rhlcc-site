@@ -186,6 +186,76 @@
       opacity: 0.6;
     }
 
+    /* --- Inline client access card (placeholder, always rejects) --- */
+    .gate-card {
+      max-width: 400px;
+      margin: 0 auto;
+      border: 1px solid var(--border-strong);
+      border-radius: 4px;
+      padding: 3rem 2rem;
+      background-color: var(--bg-elevated);
+      text-align: center;
+    }
+
+    .gate-input {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      background-color: var(--bg);
+      border: 1px solid var(--border-strong);
+      border-radius: 2px;
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-align: center;
+      transition: border-color 0.3s ease;
+    }
+
+    .gate-input:focus {
+      outline: none;
+      border-color: var(--brass);
+    }
+
+    .gate-input::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    .gate-btn {
+      width: 100%;
+      margin-top: 1rem;
+      padding: 0.9rem 1.5rem;
+      background-color: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-strong);
+      border-radius: 2px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .gate-btn:hover {
+      border-color: var(--brass);
+      color: var(--brass);
+    }
+
+    .gate-error {
+      margin-top: 1.25rem;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: #b3796b;
+      min-height: 1em;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gate-error.show {
+      opacity: 1;
+    }
+
     @media (max-width: 640px) {
       .container {
         padding: 0 1.5rem;
@@ -219,9 +289,29 @@
     <main>
       <p class="eyebrow">Client Portal</p>
       <h1>Welcome back</h1>
-      <p class="dash-welcome">Here is where your live performance data will appear.</p>
+      <p class="dash-welcome">Enter your access code to view your dashboard.</p>
 
-      <div class="dash-placeholder">
+      <!-- ========================================================
+           ACCESS CARD — PLACEHOLDER (ALWAYS REJECTS)
+           No valid code exists. Any entry returns "Incorrect access
+           code." and the dashboard below stays hidden. To make it
+           real later, add a password check in the <script> block and
+           reveal #portal-content on success.
+           ======================================================== -->
+      <div class="gate-card">
+        <input
+          type="password"
+          id="gate-input"
+          class="gate-input"
+          placeholder="Enter access code"
+          autocomplete="off"
+        >
+        <button class="gate-btn" id="gate-btn">Enter Portal</button>
+        <p class="gate-error" id="gate-error">Incorrect access code.</p>
+      </div>
+
+      <!-- Locked dashboard — hidden until a valid entry (currently never). -->
+      <div class="dash-placeholder" id="portal-content" style="display: none; margin-top: 2.5rem;">
         <p class="dash-placeholder-title">Analytics dashboard</p>
         <p class="dash-placeholder-desc">Your Google Analytics report is being connected to this view. Once live, you'll see your traffic, lead sources, and inquiry volume here.</p>
       </div>
@@ -232,5 +322,31 @@
       <p class="copyright">Rocco Holdings LLC</p>
     </footer>
   </div>
+
+  <script>
+    // ===== PLACEHOLDER GATE — always rejects =====
+    // No valid code exists. Any entry shows the error; the dashboard
+    // (#portal-content) stays hidden. Add a real check here when ready.
+    // =============================================
+
+    const input = document.getElementById('gate-input');
+    const btn = document.getElementById('gate-btn');
+    const error = document.getElementById('gate-error');
+
+    function attempt() {
+      error.classList.add('show');
+      input.value = '';
+      input.focus();
+    }
+
+    btn.addEventListener('click', attempt);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        attempt();
+      } else {
+        error.classList.remove('show');
+      }
+    });
+  </script>
 </body>
 </html>
